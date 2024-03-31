@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- 
+Tutorial: https://music.youtube.com/watch?v=kkgTuVJw03o
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Namora comigo?</title>
+  <style>
+    body {
+      background: #ff7a7a; /* Cor de fundo */
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="red"><path d="M12 21.35l-1.45-1.32C5.4 16.15 2 13.35 2 9.5 2 7.02 4.02 5 6.5 5c1.54 0 2.91.99 3.41 2.36h1.18C14.59 5.99 16.04 5 17.58 5 19.98 5 22 7.02 22 9.5c0 3.85-3.4 6.65-8.55 10.54L12 21.35z"/></svg>'); /* Imagem de fundo com corações */
+      background-repeat: repeat;
+      background-size: 50px; /* Ajuste o tamanho dos corações conforme necessário */
+    }
+
+    #conteudo {
+      background: rgba(255, 255, 255, 0.8); /* Cor do conteúdo */
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      text-align: center;
+      font-family: sans-serif;
+    }
+
+    .btn {
+      background: black;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 80px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="conteudo">
+    <h2>Aceita namorar comigo?</h2>
+    <div style="margin: auto;width: 170px;">
+      <button style="position: fixed;display: block;" class="btn" onclick="sim()">SIM</button>
+      <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)" style="position: absolute;">NÃO</button>
+    </div>
+    <!-- Áudio de fundo -->
+    <audio autoplay loop>
+      <source src="sua-musica.mp3" type="audio/mpeg">
+      Seu navegador não suporta áudio HTML5.
+    </audio>
+  </div>
+
+  <script>
+    function sim() {
+      alert("Você aceitou namorar comigo! :)");
+      // redireciona para um URL após clicar no SIM
+      location.href = "https://music.youtube.com/watch?v=kkgTuVJw03o";
+    }
+
+    function desvia(btn) {
+      // btn declarado na função
+      btn.style.position = 'absolute';
+      btn.style.bottom = geraPosicao(10, 90);
+      btn.style.left = geraPosicao(10, 90);
+      console.log('opa, desviei...');
+    }
+
+    function geraPosicao(min, max) {
+      return (Math.random() * (max - min) + min) + "%";
+    }
+  </script>
+</body>
+
+</html>
